@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  myapp-postgresql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=explorer,analist
+      - POSTGRES_USER=helper
+      - POSTGRES_PASSWORD=helper
+    ports:
+      - "192.168.9.22:5432:5432"
