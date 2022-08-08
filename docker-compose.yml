@@ -5,10 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+      - .:/docker-entrypoint-initdb.d
     environment:
-      - POSTGRES_MULTIPLE_DATABASES=explorer,analist,telemetry
-      - POSTGRES_USER=helper
-      - POSTGRES_PASSWORD=helper
+      - POSTGRES_MULTIPLE_DATABASES=horizon_db
+      - POSTGRES_USER=horizon
+      - POSTGRES_PASSWORD=horizon
     ports:
-      - "192.168.9.22:5432:5432"
+      - "5432:5432"
